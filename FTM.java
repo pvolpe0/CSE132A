@@ -1,10 +1,12 @@
+// Pablo Volpe | A11717425
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class FTM 
+public class FTM_A11717425 
 {
    public static void main (String[] args) throws ClassNotFoundException
    {
@@ -79,11 +81,11 @@ public class FTM
 
 
          
-        ResultSet countSet = statement.executeQuery("SELECT COUNT(*) AS count FROM delta");
-	int count = countSet.getInt("count");
+         ResultSet countSet = statement.executeQuery("SELECT COUNT(*) AS count FROM delta");
+	 int count = countSet.getInt("count");
 	
-        // while delta table has entries
-	while (count > 0) {
+         // while delta table has entries
+	 while (count > 0) {
        
            
            // T_old = T 
@@ -120,19 +122,27 @@ public class FTM
            count = countSet.getInt("count");
 	}
 
+       /* 
+
+       		Not Needed for final submission
 
 
-       // Output T
-       ResultSet rs = statement.executeQuery("SELECT * FROM influence WHERE [from] != [to]");
-	
-       System.out.println("src\t\ttgt");
-         while (rs.next())
-         {
-            // read the result set
-            System.out.println(rs.getString("from") + "\t\t" + rs.getString("to") );
-         }
+      	 	// Output T
+       		ResultSet rs = statement.executeQuery("SELECT * FROM influence WHERE [from] != [to]");
 
- 
+       
+       		System.out.println("src\t\ttgt");
+         	while (rs.next())
+         	{
+            
+			// read the result set
+            		System.out.println(rs.getString("from") + "\t\t" + rs.getString("to") );
+         	}
+        
+       */
+
+
+        
        // drop auxillary tables
        statement.executeUpdate("DROP TABLE IF EXISTS old_influence");
        statement.executeUpdate("DROP TABLE IF EXISTS temp_influence");
